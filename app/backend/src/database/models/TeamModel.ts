@@ -15,7 +15,7 @@ Teams.init({
   teamName: {
     allowNull: false,
     type: DataTypes.STRING,
-    field: 'team_name'
+    field: 'team_name',
   },
 }, {
 
