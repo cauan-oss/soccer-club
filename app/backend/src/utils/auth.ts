@@ -9,11 +9,11 @@ const options: SignOptions = {
   expiresIn: '1 day',
 };
 
-const genToken = (payload: JwtPayload): string => {
+const gerarToken = (payload: JwtPayload): string => {
   const token = jwt.sign(payload, secret, options);
   return token;
 };
 
 const authToken = (token: string): JwtPayload => jwt.verify(token, secret) as JwtPayload;
 
-export { authToken, genToken };
+export { authToken, gerarToken };

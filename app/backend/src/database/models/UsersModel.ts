@@ -15,7 +15,7 @@ Users.init({
     autoIncrement: true,
     type: DataTypes.INTEGER(),
   },
-  userName: {
+  username: {
     type: DataTypes.STRING,
     allowNull: false,
   },

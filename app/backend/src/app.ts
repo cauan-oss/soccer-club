@@ -1,5 +1,7 @@
 import * as express from 'express';
-import router from './rotas/teams.route';
+import routerTeam from './rotas/teams.route';
+import routerLogin from './rotas/login.route';
+import middlewaresDeErro from './middlewares/error';
 
 class App {
   public app: express.Express;
@@ -11,8 +13,9 @@ class App {
 
     // Não remover essa rota
     this.app.get('/', (req, res) => res.json({ ok: true }));
-    this.app.use('/teams', router);
-    this.app.use('login', router);
+    this.app.use('/teams', routerTeam);
+    this.app.use('/login', routerLogin);
+    this.app.use(middlewaresDeErro);
   }
 
   private config():void {
