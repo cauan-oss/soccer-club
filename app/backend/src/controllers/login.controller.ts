@@ -7,6 +7,9 @@ export default class LoginController {
     : Promise<Response | void> {
     try {
       const { email, password } = req.body;
+      if (!email || !password) {
+        return res.status(400).json({ message: 'All fields must be filled' });
+      }
       const getReturnService = await LoginService.insertLogin(email, password);
       if (!getReturnService) {
         return res.status(401).json({ message: 'Invalid email or password' });
