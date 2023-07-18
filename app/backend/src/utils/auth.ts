@@ -15,5 +15,6 @@ const gerarToken = (payload: JwtPayload): string => {
 };
 
 const authToken = (token: string): JwtPayload => jwt.verify(token, secret) as JwtPayload;
+console.log(secret);
 
 export { authToken, gerarToken };

@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 
-const Login = (req: Request, res: Response, next: NextFunction) => {
+const login = (req: Request, res: Response, next: NextFunction) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
@@ -19,4 +19,4 @@ const Login = (req: Request, res: Response, next: NextFunction) => {
   next();
 };
 
-export default Login;
+export default login;
