@@ -15,6 +15,7 @@ export default class MatchesController {
 
   public static async macthesId(req: Request, res: Response): Promise<Response> {
     const { id } = req.params;
+
     await MatchesService.endMacthes(+id);
     return res.status(200).json({ message: 'Finished' });
   }
