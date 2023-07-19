@@ -1,6 +1,7 @@
 import * as express from 'express';
 import routerTeam from './rotas/teams.route';
 import routerLogin from './rotas/login.route';
+import routerMatchers from './rotas/matches.route';
 import middlewaresDeErro from './middlewares/error';
 
 class App {
@@ -16,6 +17,7 @@ class App {
     this.app.use('/teams', routerTeam);
     this.app.use('/login', routerLogin);
     this.app.use('/login/role', routerLogin);
+    this.app.use('/matches', routerMatchers);
     this.app.use(middlewaresDeErro);
   }
 

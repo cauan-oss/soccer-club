@@ -1,0 +1,58 @@
+import { DataTypes, Model } from 'sequelize';
+import db from '.';
+// eslint-disable-next-line import/extensions
+import Team from './TeamModel';
+
+export default class Match extends Model {
+  declare id: number;
+  declare homeTeamId: number;
+  declare homeTeamGoals: number;
+  declare awayTeamId: number;
+  declare awayTeamGoals: number;
+  declare inProgress: boolean;
+  declare homeTeam: {
+    teamName: string
+  };
+
+  declare awayTeam: {
+    teamName: string
+  };
+}
+
+Match.init(
+  {
+    id: {
+      primaryKey: true,
+      autoIncrement: true,
+      type: DataTypes.INTEGER,
+    },
+    homeTeamId: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'teams',
+        key: 'id',
+      },
+    },
+    homeTeamGoals: { type: DataTypes.INTEGER },
+    awayTeamId: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'teams',
+        key: 'id',
+      },
+    },
+    awayTeamGoals: { type: DataTypes.INTEGER },
+    inProgress: { type: DataTypes.BOOLEAN },
+  },
+  {
+    underscored: true,
+    sequelize: db,
+    tableName: 'matches',
+    timestamps: false,
+  },
+);
+
+Match.belongsTo(Team, { foreignKey: 'homeTeamId', as: 'homeTeam' });
+Match.belongsTo(Team, { foreignKey: 'awayTeamId', as: 'awayTeam' });
