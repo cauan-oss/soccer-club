@@ -8,7 +8,7 @@ const valiandoToken = async (req: Request, res: Response, next: NextFunction) =>
   }
   const data = authorization?.split(' ');
   try {
-    const verify = authToken(data[1]);
+    await authToken(data[1]);
     next();
   } catch (error) {
     return res.status(401).json({ message: 'Token must be a valid token' });
