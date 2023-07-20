@@ -27,4 +27,9 @@ export default class MatchesController {
     if (updated === 0) return res.status(200).end();
     return res.status(200).json({ message: 'Finished' });
   }
+
+  public static async createMatch(req: Request, res: Response): Promise<Response | any> {
+    const jogos = await MatchesService.createMatch(req.body);
+    return res.status(201).json(jogos);
+  }
 }

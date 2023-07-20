@@ -34,4 +34,13 @@ export default class MatchesService {
     );
     return updated;
   }
+
+  public static async createMatch(jogos: any) {
+    const create = await Match.create({
+      ...jogos,
+      inProgress: true,
+    });
+
+    return create;
+  }
 }
