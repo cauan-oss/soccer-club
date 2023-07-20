@@ -28,10 +28,10 @@ export default class MatchesService {
 
   public static async updateMatch(id: number, awayTeamGoals:
   number, homeTeamGoals: number): Promise<number> {
-    const [updatedRows] = await Match.update(
+    const [updated] = await Match.update(
       { awayTeamGoals, homeTeamGoals },
       { where: { id } },
     );
-    return updatedRows;
+    return updated;
   }
 }

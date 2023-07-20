@@ -23,8 +23,8 @@ export default class MatchesController {
   public static async updateMatch(req: Request, res: Response): Promise<Response | void> {
     const { id } = req.params;
     const { awayTeamGoals, homeTeamGoals } = req.body;
-    const updatedRows = await MatchesService.updateMatch(+id, awayTeamGoals, homeTeamGoals);
-    if (updatedRows === 0) return res.status(200).end();
+    const updated = await MatchesService.updateMatch(+id, awayTeamGoals, homeTeamGoals);
+    if (updated === 0) return res.status(200).end();
     return res.status(200).json({ message: 'Finished' });
   }
 }
