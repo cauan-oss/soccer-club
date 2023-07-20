@@ -18,6 +18,7 @@ class App {
     this.app.use('/login', routerLogin);
     this.app.use('/login/role', routerLogin);
     this.app.use('/matches', routerMatchers);
+    // this.app.use('/matches/:id', routerMatchers);
     this.app.use(middlewaresDeErro);
   }
 

@@ -25,4 +25,13 @@ export default class MatchesService {
   public static async endMacthes(id: number): Promise<void> {
     await Match.update({ inProgress: false }, { where: { id } });
   }
+
+  public static async updateMatch(id: number, awayTeamGoals:
+  number, homeTeamGoals: number): Promise<number> {
+    const [updatedRows] = await Match.update(
+      { awayTeamGoals, homeTeamGoals },
+      { where: { id } },
+    );
+    return updatedRows;
+  }
 }
