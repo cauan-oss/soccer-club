@@ -1,5 +1,4 @@
 export default interface Imatchers {
-
   id: number
   homeTeamId: number,
   homeTeamGoals: number,

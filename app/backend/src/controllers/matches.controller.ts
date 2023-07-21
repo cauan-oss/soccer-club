@@ -30,6 +30,7 @@ export default class MatchesController {
 
   public static async createMatch(req: Request, res: Response): Promise<Response | any> {
     const jogos = await MatchesService.createMatch(req.body);
+    console.log(req.body);
     return res.status(201).json(jogos);
   }
 }
