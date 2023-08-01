@@ -7,6 +7,7 @@ import { app } from "../app";
 import { teams, team } from "../tests/mocks/teams";
 import teamsModel from "../database/models/TeamModel";
 import matcheModel from "../database/models/Matches";
+import usersModel from '../database/models/UsersModel'
 
 chai.use(chaiHttp);
 
