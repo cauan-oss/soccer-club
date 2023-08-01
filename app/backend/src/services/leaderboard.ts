@@ -32,12 +32,12 @@ export default class ServiceLeaderBoard {
     const infoPartidas = await MatchService.activeMacthes(oprogresso);
     const todosTimes = await TeamService.getAll();
     // mapeando o leaderBoard com map
-    const melhores = todosTimes.map(async (team) => {
+    const melhores = todosTimes.map(async (time) => {
       // filtrando pelo time id e pela partida em casa id
-      const timesEpartidas = infoPartidas.filter((match) => team.id === match.homeTeamId);
+      const timesEpartidas = infoPartidas.filter((partida) => time.id === partida.homeTeamId);
       const informacoesTimesEpartidas = await Promise.all(timesEpartidas);
       // retorno do resultado
-      const resultado = await ServiceLeaderBoard.retornaOplacar(team, informacoesTimesEpartidas);
+      const resultado = await ServiceLeaderBoard.retornaOplacar(time, informacoesTimesEpartidas);
       return resultado;
     });
     // espera da resposta
