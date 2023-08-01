@@ -27,9 +27,14 @@ interface IMatch {
 export default class ServiceLeaderBoard {
   public static async funcLeaderBoard(): Promise<ILeaderboard[]> {
     const progresso = Boolean(false);
+    // progresso is bool
     const matchesInfo = await MatchService.activeMacthes(progresso);
     // todos os times
+    /*
+    const number = 1;
+    const alterando = [0, 0]; */
     const todosTimes = await TeamService.getAll();
+    // times
     const leaderboard = todosTimes.map(async (team) => {
       const promisesTeamMatches = matchesInfo.filter((match) => team.id === match.awayTeamId);
 
@@ -118,7 +123,7 @@ export default class ServiceLeaderBoard {
     });
     return goalsOwn;
   }
-/
+
   public static async metPlacar(team: ITeams, teamMatchesInfo: IMatch[]) {
     const returnAll = {
       name: team.teamName,
