@@ -118,7 +118,7 @@ export default class ServiceLeaderBoard {
     });
     return goalsOwn;
   }
-
+/
   public static async metPlacar(team: ITeams, teamMatchesInfo: IMatch[]) {
     const returnAll = {
       name: team.teamName,

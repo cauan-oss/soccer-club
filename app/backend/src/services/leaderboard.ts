@@ -81,10 +81,10 @@ export default class ServiceLeaderBoard {
     return total;
   }
 
-  static async totalSorteios(teamMatchesInfo: IMatch[]) {
+  static async totalSorteios(infoTime: IMatch[]) {
     let totalSortes = 0;
     const maisUm = 1;
-    teamMatchesInfo.forEach((match) => {
+    infoTime.forEach((match) => {
       if (match.homeTeamGoals === match.awayTeamGoals) {
         totalSortes += maisUm;
       }
