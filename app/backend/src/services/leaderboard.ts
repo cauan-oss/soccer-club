@@ -47,15 +47,15 @@ export default class ServiceLeaderBoard {
   }
   // funcao do total de pontos
 
-  static async totalDepontos(teamMatchesInfo: IMatch[]) {
+  static async totalDepontos(timesEplacares: IMatch[]) {
     let totalPontos = 0;
     const maisUm = 1;
     const maisTres = 3;
-    teamMatchesInfo.forEach((match) => {
-      if (match.homeTeamGoals > match.awayTeamGoals) {
+    timesEplacares.forEach((partida) => {
+      if (partida.homeTeamGoals > partida.awayTeamGoals) {
         totalPontos += maisTres;
       }
-      if (match.homeTeamGoals === match.awayTeamGoals) {
+      if (partida.homeTeamGoals === partida.awayTeamGoals) {
         totalPontos += maisUm;
       }
     });
