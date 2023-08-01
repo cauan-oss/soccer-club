@@ -64,15 +64,15 @@ export default class ServiceLeaderBoard {
   }
 
   // funcao do total de jogos
-  static async totalJogos(teamMatchesInfo: IMatch[]) {
-    return teamMatchesInfo.length;
+  static async totalJogos(Infotime: IMatch[]) {
+    return Infotime.length;
   }
   //  funcao do total de vitorias
 
-  static async totalVitorias(teamMatchesInfo: IMatch[]) {
+  static async totalVitorias(Infotime: IMatch[]) {
     let total = 0;
     const maisUm = 1;
-    teamMatchesInfo.forEach((match) => {
+    Infotime.forEach((match) => {
       if (match.homeTeamGoals > match.awayTeamGoals) {
         total += maisUm;
       }
